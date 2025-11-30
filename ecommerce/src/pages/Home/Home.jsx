@@ -1,6 +1,9 @@
+import Header from '../../components/Header/Header'
+
 const Home = () => {
   return (
     <>
+      <Header />
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">

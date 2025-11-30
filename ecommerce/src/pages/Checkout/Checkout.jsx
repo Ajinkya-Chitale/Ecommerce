@@ -1,9 +1,10 @@
-import '../Checkout/checkout.css'
-import '../Checkout/checkout-header.css'
+import CheckoutHeader from './CheckoutHeader' 
+import '../Checkout/Checkout.css'
 
 const Checkout = () => {
   return (
     <>
+        <CheckoutHeader />
         <div className="checkout-page">
             <div className="page-title">Review your order</div>
 
@@ -43,7 +44,7 @@ const Checkout = () => {
                         Choose a delivery option:
                         </div>
                         <div className="delivery-option">
-                        <input type="radio" checked
+                        <input type="radio"
                             className="delivery-option-input"
                             name="delivery-option-1" />
                         <div>
@@ -132,7 +133,7 @@ const Checkout = () => {
                         </div>
                         </div>
                         <div className="delivery-option">
-                        <input type="radio" checked className="delivery-option-input"
+                        <input type="radio" className="delivery-option-input"
                             name="delivery-option-2" />
                         <div>
                             <div className="delivery-option-date">
