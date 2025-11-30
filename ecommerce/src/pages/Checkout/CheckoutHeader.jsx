@@ -18,7 +18,7 @@ const CheckoutHeader = () => {
                 </div>
 
                 <div className="checkout-header-right-section">
-                <img src="images/icons/checkout-lock-icon.png" />
+                <img src="/checkout-lock-icon.png" />
                 </div>
             </div>
         </div>

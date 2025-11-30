@@ -18,7 +18,7 @@ const Checkout = () => {
 
                     <div className="cart-item-details-grid">
                     <img className="product-image"
-                        src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                        src="../src/assets/products/athletic-cotton-socks-6-pairs.jpg" />
 
                     <div className="cart-item-details">
                         <div className="product-name">
@@ -94,7 +94,7 @@ const Checkout = () => {
 
                     <div className="cart-item-details-grid">
                     <img className="product-image"
-                        src="images/products/intermediate-composite-basketball.jpg" />
+                        src="../src/assets/products/intermediate-composite-basketball.jpg" />
 
                     <div className="cart-item-details">
                         <div className="product-name">

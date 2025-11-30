@@ -4,14 +4,14 @@ const Home = () => {
   return (
     <>
       <title>Ecommerce</title>
-      
+
       <Header />
       <div className="home-page">
         <div className="products-grid">
           <div className="product-container">
             <div className="product-image-container">
               <img className="product-image"
-                src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                src="../src/assets/products/athletic-cotton-socks-6-pairs.jpg" />
             </div>
 
             <div className="product-name limit-text-to-2-lines">
@@ -20,7 +20,7 @@ const Home = () => {
 
             <div className="product-rating-container">
               <img className="product-rating-stars"
-                src="images/ratings/rating-45.png" />
+                src="../src/assets/ratings/rating-45.png" />
               <div className="product-rating-count link-primary">
                 87
               </div>
@@ -48,7 +48,7 @@ const Home = () => {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src="/checkmark.png" />
               Added
             </div>
 
@@ -60,7 +60,7 @@ const Home = () => {
           <div className="product-container">
             <div className="product-image-container">
               <img className="product-image"
-                src="images/products/intermediate-composite-basketball.jpg" />
+                src="../src/assets/products/intermediate-composite-basketball.jpg" />
             </div>
 
             <div className="product-name limit-text-to-2-lines">
@@ -69,7 +69,7 @@ const Home = () => {
 
             <div className="product-rating-container">
               <img className="product-rating-stars"
-                src="images/ratings/rating-40.png" />
+                src="../src/assets/ratings/rating-40.png" />
               <div className="product-rating-count link-primary">
                 127
               </div>
@@ -97,7 +97,7 @@ const Home = () => {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src="/checkmark.png" />
               Added
             </div>
 
@@ -109,7 +109,7 @@ const Home = () => {
           <div className="product-container">
             <div className="product-image-container">
               <img className="product-image"
-                src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" />
+                src="../src/assets/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" />
             </div>
 
             <div className="product-name limit-text-to-2-lines">
@@ -118,7 +118,7 @@ const Home = () => {
 
             <div className="product-rating-container">
               <img className="product-rating-stars"
-                src="images/ratings/rating-45.png" />
+                src="../src/assets/ratings/rating-45.png" />
               <div className="product-rating-count link-primary">
                 56
               </div>
@@ -146,7 +146,7 @@ const Home = () => {
             <div className="product-spacer"></div>
 
             <div className="added-to-cart">
-              <img src="images/icons/checkmark.png" />
+              <img src="/checkmark.png" />
               Added
             </div>
 

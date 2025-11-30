@@ -25,7 +25,7 @@ const Tracking = () => {
                 Quantity: 1
                 </div>
 
-                <img className="product-image" src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+                <img className="product-image" src="../src/assets/products/athletic-cotton-socks-6-pairs.jpg" />
 
                 <div className="progress-labels-container">
                 <div className="progress-label">
