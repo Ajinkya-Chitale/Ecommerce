@@ -3,6 +3,8 @@ import Header from '../../components/Header/Header'
 const Home = () => {
   return (
     <>
+      <title>Ecommerce</title>
+      
       <Header />
       <div className="home-page">
         <div className="products-grid">
