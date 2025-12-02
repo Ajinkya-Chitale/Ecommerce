@@ -1,12 +1,10 @@
 import './PageNotFound.css';
-import Header from "../../components/Header/Header"
 import { Link } from 'react-router-dom';
 
 const PageNotFound = () => {
   return (
     <>
         <title>404 - Page Not Found</title>
-        <Header />
         <div className='PageNotFound_Page'>
             <div class="container">
                 <h1>404</h1>

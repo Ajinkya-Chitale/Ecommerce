@@ -7,8 +7,6 @@ import Tracking from './pages/Tracking/Tracking'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
 
 function App() {
-
-
   return (
     <>
       <Routes>
