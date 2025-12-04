@@ -6,7 +6,7 @@ const Login = () => {
     <>
       <title>Login Page</title>
 
-      <div class="login-Parent">
+      <div className="login-Parent">
         <div className="login-container">
           <h2>Login</h2>
           <form>

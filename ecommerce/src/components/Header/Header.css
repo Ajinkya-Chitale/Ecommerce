@@ -86,7 +86,7 @@
 }
 
 .header .search-button {
-  background-color: rgb(186, 255, 190);
+  background-color: #baffbe;
   border: none;
   width: 45px;
   height: 40px;
@@ -151,4 +151,15 @@
 
   width: 26px;
   text-align: center;
+}
+
+.loginBtn {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+  font-size: 16px;
+  font-weight: 500;
+  background-color: #baffbe;
 }

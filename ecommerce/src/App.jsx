@@ -9,8 +9,12 @@ import { useEffect, useState } from 'react'
 import api from './api'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
+import ProtectedRoute from './components/ProtectedRoute'
+import { useContext } from 'react'
+import { AuthenticatedContext } from './context/AuthContext'
 
 function App() {
+  const { isAuthenticated } = useContext(AuthenticatedContext);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
@@ -25,12 +29,19 @@ function App() {
   return (
     <>
       <Routes>
+        {/* Public Routes */}
         <Route index element={<Home />} />
         <Route path='login' element={<Login />} />
         <Route path='signup' element={<SignUp />} />
-        <Route path='checkout' element={<Checkout />} />
-        <Route path='orders' element={<Orders />} />
-        <Route path='tracking' element={<Tracking />} />
+
+        {/* Protected Routes */}
+        <Route element={<ProtectedRoute />} isAuthenticated={isAuthenticated}>
+          <Route path='checkout' element={<Checkout />} />
+          <Route path='orders' element={<Orders />} />
+          <Route path='tracking' element={<Tracking />} />
+        </Route>
+        
+        {/* Public Routes */}
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>
