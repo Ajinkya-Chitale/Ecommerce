@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
-import axios from 'axios'
 import ProductContainer from './ProductContainer';
+import api from '../../api';
+import Login from '../Login/Login';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await axios.get('https://fakestoreapi.com/products');
+      const response = await api.get('/products');
       setProducts(response.data);
     }
 
@@ -18,7 +19,6 @@ const Home = () => {
   return (
     <>
       <title>Ecommerce</title>
-
       <Header />
       <div className="home-page">
         <div className="products-grid">
