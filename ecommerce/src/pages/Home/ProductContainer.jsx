@@ -1,8 +1,12 @@
+import { useCart } from "../../context/cartHelpers";
+
 const ProductContainer = ({product}) => {
     // Function to round the decimal number to nearest - for star rating 
     const roundToNearestHalf = (num) => {
         return Math.round(num * 2) / 2;
     }
+
+    const { addToCart } = useCart();
 
   return (
     <div className="product-container">
@@ -49,8 +53,8 @@ const ProductContainer = ({product}) => {
         Added
         </div>
 
-        <button className="add-to-cart-button button-primary">
-        Add to Cart
+        <button className="add-to-cart-button button-primary" onClick={ () => addToCart(product) }>
+            Add to Cart
         </button>
     </div>
   )

@@ -1,7 +1,46 @@
 import { Link } from 'react-router-dom';
 import './signup.css';
+import { useContext } from 'react';
+import { AuthenticatedContext } from '../../context/AuthContext';
+import api from '../../api';
 
 const SignUp = () => {
+  const {signUpFormData, setSignUpFormData} = useContext(AuthenticatedContext);
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+
+    setSignUpFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }))  
+  }
+
+  const signUpFunc = async () => {
+    try {
+      const response = await api.post("/users", JSON.stringify(signUpFormData));
+
+      if(response.status !== 201) {
+        throw new Error(response);
+      }
+      const data = await response.data;
+      console.log(data.id);
+      setSignUpFormData({
+        username: "",
+        email: "",
+        password: ""
+      })
+    }
+    catch(err) {
+      console.log(err.data);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signUpFunc();
+  }
+
   return (
     <>
       <title>SignUp Page</title>
@@ -9,15 +48,15 @@ const SignUp = () => {
       <div className='signup-Parent'>
         <div className="signup-container">
           <h2>Sign Up</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="username">User Name</label>
-              <input type="text" id="username" name="username" placeholder="Enter your user name" required />
+              <input type="text" id="username" name="username" placeholder="Enter your user name" value={signUpFormData.username} onChange={handleChange} required />
             </div>
 
             <div className="form-group">
               <label htmlFor="email">Email ID</label>
-              <input type="email" id="email" name="email" placeholder="Enter your email" required />
+              <input type="email" id="email" name="email" placeholder="Enter your email" value={signUpFormData.email} onChange={handleChange} required />
             </div>
 
             <div className="form-group">
@@ -27,6 +66,8 @@ const SignUp = () => {
                 id="password"
                 name="password"
                 placeholder="Enter your password"
+                value={signUpFormData.password}
+                onChange={handleChange}
                 required
               />
             </div>

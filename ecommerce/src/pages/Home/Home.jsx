@@ -2,15 +2,24 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
 import ProductContainer from './ProductContainer';
 import api from '../../api';
-import Login from '../Login/Login';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
-      const response = await api.get('/products');
-      setProducts(response.data);
+      try {
+        const response = await api.get('/products');
+
+        if(response.status !== 200) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        
+        setProducts(response.data);
+      }
+      catch (err) {
+        console.log('Not able to fetch products data.', err);
+      }
     }
 
     getProducts();

@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Header.css'
 import { useContext } from 'react'
 import { AuthenticatedContext } from '../../context/AuthContext';
 
 const Header = () => {
     const { isAuthenticated } = useContext(AuthenticatedContext);
+    const navigate = useNavigate();
 
     return (
         <>
@@ -12,10 +13,6 @@ const Header = () => {
                 <div className="left-section">
                     <Link to="/" className="header-link">
                         <span className="logo">E-COMMERCE</span>
-                    {/* <img className="logo"
-                        src="images/logo-white.png" />
-                    <img className="mobile-logo"
-                        src="images/mobile-logo-white.png" /> */}
                     </Link>
                 </div>
 
@@ -26,13 +23,6 @@ const Header = () => {
                         <img className="search-icon" src="/search-icon.png" />
                     </button>
                 </div>
-                
-                {
-                    !isAuthenticated && 
-                    <div className='login-section'>
-                        <button className='loginBtn'>Login</button>
-                    </div>
-                }
 
                 <div className="right-section">
                     <Link className="orders-link header-link" to="/orders">
@@ -45,6 +35,13 @@ const Header = () => {
                         <div className="cart-text">Cart</div>
                     </Link>
                 </div>
+
+                {
+                    !isAuthenticated && 
+                    <div className='login-section'>
+                        <button className='loginBtn' onClick={() => navigate('/login')}>Login</button>
+                    </div>
+                }
             </div>
         </>
     )
