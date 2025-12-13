@@ -2,9 +2,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import './Header.css'
 import { useContext } from 'react'
 import { AuthenticatedContext } from '../../context/AuthContext';
+import { useCart } from '../../context/cartHelpers';
 
 const Header = () => {
     const { isAuthenticated } = useContext(AuthenticatedContext);
+    const {cartItems} = useCart();
     const navigate = useNavigate();
 
     return (
@@ -31,7 +33,7 @@ const Header = () => {
 
                     <Link className="cart-link header-link" to="/checkout">
                         <img className="cart-icon" src="/cart-icon.png" />
-                        <div className="cart-quantity">3</div>
+                        <div className="cart-quantity">{cartItems.length}</div>
                         <div className="cart-text">Cart</div>
                     </Link>
                 </div>
