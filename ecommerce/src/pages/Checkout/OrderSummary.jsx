@@ -22,12 +22,14 @@ const OrderSummary = ({cartItems}) => {
                       <span>
                         Quantity: <span className="quantity-label">{quantity}</span>
                       </span>
-                      <span className="update-quantity-link link-primary">
-                        Update
-                      </span>
-                      <span className="delete-quantity-link link-primary">
-                        Delete
-                      </span>
+                      <div className="quantity-action-links">
+                        <span className="update-quantity-link link-primary">
+                          Update
+                        </span>
+                        <span className="delete-quantity-link link-primary">
+                          Delete
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
