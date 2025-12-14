@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header/Header'
 import ProductContainer from './ProductContainer';
 import api from '../../api';
+import { useLoader } from '../../context/LoaderHelpers';
+import Loader from '../../components/Loader/Loader';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
+  const {isLoading, showLoader, hideLoader} = useLoader();
 
   useEffect(() => {
     const getProducts = async () => {
+      showLoader();
       try {
         const response = await api.get('/products');
 
@@ -16,6 +20,7 @@ const Home = () => {
         }
         
         setProducts(response.data);
+        hideLoader();
       }
       catch (err) {
         console.log('Not able to fetch products data.', err);
@@ -28,18 +33,22 @@ const Home = () => {
   return (
     <>
       <title>Ecommerce</title>
-      <Header />
-      <div className="home-page">
-        <div className="products-grid">
-          {
-            products.map((product) => {
-              return(
-                <ProductContainer key={product.id} product={product} />
-              )
-            })
-          }
-        </div>
-      </div>
+      {isLoading ? <Loader /> : (
+        <>
+          <Header />
+          <div className="home-page">
+            <div className="products-grid">
+              {
+                products.map((product) => {
+                  return(
+                    <ProductContainer key={product.id} product={product} />
+                  )
+                })
+              }
+            </div>
+          </div>
+        </>
+      )}
     </>
   )
 }
