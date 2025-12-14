@@ -94,6 +94,11 @@ const Login = () => {
               <Link to={"/signup"}>Sign up</Link>
             </div>
           </form>
+          <div>
+            <h3>Test Credentials</h3>
+            <p>Username: johnd</p>
+            <p>Password: m38rmF$</p>
+          </div>
         </div>
       </div>
 
