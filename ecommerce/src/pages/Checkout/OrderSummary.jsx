@@ -4,7 +4,7 @@ const OrderSummary = ({cartItems}) => {
       <div className="order-summary">
         {
           cartItems.map((item, index) => {
-            const { title, price, image } = item;
+            const { title, price, image, quantity } = item;
             return (
               <div className="cart-item-container" key={index}>
                 <div className="cart-item-details-grid">
@@ -20,7 +20,7 @@ const OrderSummary = ({cartItems}) => {
                     <div className="product-price">{price}</div>
                     <div className="product-quantity">
                       <span>
-                        Quantity: <span className="quantity-label">1</span>
+                        Quantity: <span className="quantity-label">{quantity}</span>
                       </span>
                       <span className="update-quantity-link link-primary">
                         Update
