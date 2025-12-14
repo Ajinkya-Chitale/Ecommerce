@@ -23,9 +23,14 @@ const OrderSummary = ({cartItems}) => {
                         Quantity: <span className="quantity-label">{quantity}</span>
                       </span>
                       <div className="quantity-action-links">
-                        <span className="update-quantity-link link-primary">
-                          Update
-                        </span>
+                        <button
+                          className="quantity-btn decrement-btn"
+                          disabled={quantity <= 1}
+                        >-</button>
+                        <span className="quantity-value">{quantity}</span>
+                        <button
+                          className="quantity-btn increment-btn"
+                        >+</button>
                         <span className="delete-quantity-link link-primary">
                           Delete
                         </span>

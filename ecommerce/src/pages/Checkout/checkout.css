@@ -215,3 +215,45 @@
   font-weight: 500;
   text-align: center;
 }
+
+/* Quantity Controls */
+.checkout-page .quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.checkout-page .quantity-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgb(222, 222, 222);
+  background-color: white;
+  color: rgb(25, 135, 84);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.1s, border-color 0.1s;
+}
+
+.checkout-page .quantity-btn:hover:not(:disabled) {
+  background-color: rgb(240, 240, 240);
+  border-color: rgb(25, 135, 84);
+}
+
+.checkout-page .quantity-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkout-page .quantity-value {
+  font-weight: 600;
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+  align-content: center;
+}
