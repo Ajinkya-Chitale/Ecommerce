@@ -11,9 +11,9 @@ const CartContextProvider = ({ children }) => {
 
             if (isItemInCart) {
                 // Return a new array with the updated quantity for the matching item
-                return prevItems.map((item) => {
-                    item.id === newItem.id ? { ...item, quantity: item.quantity + quantity } : item;
-                });
+                return prevItems.map((item) =>
+                    item.id === newItem.id ? { ...item, quantity: item.quantity + quantity } : item
+                );
             }
 
             // If item is not in cart, add it to the array
