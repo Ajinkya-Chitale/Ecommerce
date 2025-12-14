@@ -5,7 +5,7 @@ const CartContextProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
     // Function to add an item while maintaining immutability
-    const addToCart = (newItem, quantity) => {
+    const addToCart = (newItem, quantity, setAddedToCart) => {
         setCartItems((prevItems) => {
             const isItemInCart = prevItems.find((item) => item.id === newItem.id);
 
@@ -19,6 +19,13 @@ const CartContextProvider = ({ children }) => {
             // If item is not in cart, add it to the array
             return [...prevItems, { ...newItem, quantity: quantity }];
         });
+
+        setAddedToCart(true);
+
+        // Reset addedToCart to false after 3 seconds
+        setTimeout(() => {
+            setAddedToCart(false);
+        }, 1000);
     };
 
     return (

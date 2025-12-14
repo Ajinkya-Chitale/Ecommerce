@@ -4,6 +4,7 @@ import { useCart } from "../../context/cartHelpers";
 const ProductContainer = ({product}) => {
     const { addToCart } = useCart();
     const [quantity, setQuantity] = useState(1);
+    const [addedToCart, setAddedToCart] = useState(false);
 
     // Function to round the decimal number to nearest - for star rating 
     const roundToNearestHalf = (num) => {
@@ -50,12 +51,12 @@ const ProductContainer = ({product}) => {
 
             <div className="product-spacer"></div>
 
-            <div className="added-to-cart">
-            <img src="/checkmark.png" />
-            Added
+            <div className="added-to-cart" style={{ opacity: addedToCart ? 1 : 0 }}>
+                <img src="/checkmark.png" />
+                Added
             </div>
 
-            <button className="add-to-cart-button button-primary" onClick={ () => addToCart(product, quantity) }>
+            <button className="add-to-cart-button button-primary" onClick={ () => addToCart(product, quantity, setAddedToCart) }>
                 Add to Cart
             </button>
         </div>
