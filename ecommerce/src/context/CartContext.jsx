@@ -39,13 +39,13 @@ const CartContextProvider = ({ children }) => {
 
     // Function to decrement quantity of an item
     const decrementQuantity = (itemToDecrementId) => {
-        setCartItems((prevItems) => {
-            return prevItems.map((item) =>
+        setCartItems((prevItems) =>
+            prevItems.map((item) =>
                 item.id === itemToDecrementId && item.quantity > 1
                     ? { ...item, quantity: item.quantity - 1 }
                     : item
             )
-        })
+        )
     }
 
     // Function to delete an item from the cart
