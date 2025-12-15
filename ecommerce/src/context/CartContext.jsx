@@ -28,8 +28,35 @@ const CartContextProvider = ({ children }) => {
         }, 1000);
     };
 
+    // Function to increment quantity of an item
+    const incrementQuantity = (itemToIncrementId) => {
+        setCartItems((prevItems) =>
+            prevItems.map((item) =>
+                item.id === itemToIncrementId ? { ...item, quantity: item.quantity + 1 } : item
+            )
+        );
+    };
+
+    // Function to decrement quantity of an item
+    const decrementQuantity = (itemToDecrementId) => {
+        setCartItems((prevItems) => {
+            return prevItems.map((item) =>
+                item.id === itemToDecrementId && item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            )
+        })
+    }
+
+    // Function to delete an item from the cart
+    const deleteItem = (itemToDeleteId) => {
+        setCartItems((prevItems) => {
+            return prevItems.filter(item => item.id !== itemToDeleteId);
+        })
+    }
+
     return (
-        <CartContext.Provider value={{ cartItems, addToCart }}>
+        <CartContext.Provider value={{ cartItems, addToCart, incrementQuantity, decrementQuantity, deleteItem }}>
             { children }
         </CartContext.Provider>
     )

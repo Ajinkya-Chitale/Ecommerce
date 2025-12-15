@@ -1,4 +1,8 @@
+import { useCart } from "../../context/cartHelpers";
+
 const OrderSummary = ({cartItems}) => {
+  const { incrementQuantity, decrementQuantity, deleteItem } = useCart();
+
   return (
     <>
       <div className="order-summary">
@@ -26,12 +30,14 @@ const OrderSummary = ({cartItems}) => {
                         <button
                           className="quantity-btn decrement-btn"
                           disabled={quantity <= 1}
+                          onClick={() => {decrementQuantity(item.id)}}
                         >-</button>
                         <span className="quantity-value">{quantity}</span>
                         <button
                           className="quantity-btn increment-btn"
+                          onClick={() => {incrementQuantity(item.id)}}
                         >+</button>
-                        <span className="delete-quantity-link link-primary">
+                        <span className="delete-quantity-link link-primary" onClick={() => {deleteItem(item.id)}}>
                           Delete
                         </span>
                       </div>
