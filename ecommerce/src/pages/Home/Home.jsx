@@ -31,7 +31,7 @@ const Home = () => {
                   })
                 }
               </div> :
-              <h2 className="no-products">No Products Found</h2>
+              <h2 className="no-products">No products matched your search.</h2>
             }
           </div>
         </>
