@@ -1,7 +1,8 @@
 const PaymentSummary = ({ cartItems }) => {
   // Constants for pricing
-  const SHIPPING_COST = 4.99;
-  const TAX_RATE = 0.05;
+  const DEFAULT_AMOUNT = 0.00;
+  const SHIPPING_COST = cartItems.length > 0 ? 4.99 : DEFAULT_AMOUNT;
+  const TAX_RATE = cartItems.length > 0 ? 0.05 : DEFAULT_AMOUNT;
 
   // Calculate totals
   const itemsTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);

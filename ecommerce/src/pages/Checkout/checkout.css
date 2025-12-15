@@ -118,6 +118,7 @@
   display: flex;
   gap: 10px;
   margin-top: 5px;
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
@@ -251,9 +252,17 @@
 }
 
 .checkout-page .quantity-value {
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   min-width: 20px;
   text-align: center;
-  align-content: center;
+}
+
+.view-products-link {
+  display: block;
+  margin-top: 12px;
+  color: rgb(25, 135, 84);
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
 }

@@ -3,6 +3,7 @@ import "../Checkout/Checkout.css";
 import OrderSummary from "./OrderSummary";
 import { useCart } from "../../context/cartHelpers";
 import PaymentSummary from "./PaymentSummary";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
     const { cartItems } = useCart();
@@ -16,6 +17,7 @@ const Checkout = () => {
                     cartItems.length === 0 ?
                     <div className="empty-cart-message">
                         Your cart is empty. Please add items to your cart before proceeding to checkout.
+                        <Link to="/" className="view-products-link">View Products</Link>
                     </div>
                     :
                     <>
