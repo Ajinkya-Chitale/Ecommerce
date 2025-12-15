@@ -155,3 +155,8 @@
   height: 34px;
   margin-top: 1px;
 }
+
+.no-products {
+  text-align: center;
+  padding-top: 50px;
+}

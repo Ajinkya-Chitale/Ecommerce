@@ -1,34 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Header from '../../components/Header/Header'
 import ProductContainer from './ProductContainer';
-import api from '../../api';
 import { useLoader } from '../../context/LoaderHelpers';
 import Loader from '../../components/Loader/Loader';
+import { useProduct } from '../../context/productHelpers';
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const {isLoading, showLoader, hideLoader} = useLoader();
+  const { getProducts, products } = useProduct();
+  const { isLoading } = useLoader();
 
   useEffect(() => {
-    const getProducts = async () => {
-      showLoader();
-      try {
-        const response = await api.get('/products');
-
-        if(response.status !== 200) {
-          throw new Error(`HTTP error! status: ${response.status}`)
-        }
-        
-        setProducts(response.data);
-        hideLoader();
-      }
-      catch (err) {
-        console.log('Not able to fetch products data.', err);
-      }
-    }
-
     getProducts();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -37,15 +20,19 @@ const Home = () => {
         <>
           <Header />
           <div className="home-page">
-            <div className="products-grid">
-              {
-                products.map((product) => {
-                  return(
-                    <ProductContainer key={product.id} product={product} />
-                  )
-                })
-              }
-            </div>
+            {
+            products.length > 0 ?
+              <div className="products-grid">
+                {
+                  products.map((product) => {
+                    return(
+                      <ProductContainer key={product.id} product={product} />
+                    )
+                  })
+                }
+              </div> :
+              <h2 className="no-products">No Products Found</h2>
+            }
           </div>
         </>
       )}

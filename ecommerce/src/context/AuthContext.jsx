@@ -1,6 +1,5 @@
-import { createContext, useState } from "react";
-
-const AuthenticatedContext = createContext();
+import { useState } from "react";
+import { AuthenticatedContext } from "./authHelpers";
 
 const AuthContextProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

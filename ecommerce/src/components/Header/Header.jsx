@@ -1,12 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './Header.css'
-import { useContext } from 'react'
-import { AuthenticatedContext } from '../../context/AuthContext';
 import { useCart } from '../../context/cartHelpers';
+import { useAuth } from '../../context/authHelpers';
+import { useProduct } from '../../context/productHelpers';
 
 const Header = () => {
-    const { isAuthenticated } = useContext(AuthenticatedContext);
-    const {cartItems} = useCart();
+    const { isAuthenticated } = useAuth(); // Accessing authentication status from AuthContext
+    const { cartItems } = useCart(); // Accessing cart items from CartContext
+    const { handleSearchProduct } = useProduct(); // Accessing the search handler from ProductContext
     const navigate = useNavigate();
 
     return (
@@ -19,11 +20,11 @@ const Header = () => {
                 </div>
 
                 <div className="middle-section">
-                    <input className="search-bar" type="text" placeholder="Search" />
+                    <input className="search-bar" type="text" placeholder="Search" onKeyUp={ handleSearchProduct } />
 
-                    <button className="search-button">
+                    {/* <button className="search-button">
                         <img className="search-icon" src="/search-icon.png" />
-                    </button>
+                    </button> */}
                 </div>
 
                 <div className="right-section">

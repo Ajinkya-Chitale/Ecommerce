@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom';
 import './signup.css';
-import { useContext } from 'react';
-import { AuthenticatedContext } from '../../context/AuthContext';
 import api from '../../api';
+import { useAuth } from '../../context/authHelpers';
 
 const SignUp = () => {
-  const {signUpFormData, setSignUpFormData} = useContext(AuthenticatedContext);
+  const {signUpFormData, setSignUpFormData} = useAuth();
 
   const handleChange = (e) => {
     const {name, value} = e.target;

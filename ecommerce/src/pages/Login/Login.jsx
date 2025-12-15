@@ -1,12 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { useContext } from "react";
-import { AuthenticatedContext } from "../../context/AuthContext";
 import api from "../../api";
 import ErrorModal from "../../components/ErrorModal/ErrorModal";
+import { useAuth } from "../../context/authHelpers";
 
 const Login = () => {
-  const { loginFormData, setLoginFormData, setToken, setIsAuthenticated, errorMessage, setErrorMessage, handleErrorCloseModal } = useContext(AuthenticatedContext);
+  const { loginFormData, setLoginFormData, setToken, setIsAuthenticated, errorMessage, setErrorMessage, handleErrorCloseModal } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   

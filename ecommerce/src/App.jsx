@@ -8,11 +8,10 @@ import PageNotFound from './pages/PageNotFound/PageNotFound'
 import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
 import ProtectedRoute from './components/ProtectedRoute'
-import { useContext } from 'react'
-import { AuthenticatedContext } from './context/AuthContext'
+import { useAuth } from './context/authHelpers'
 
 function App() {
-  const { isAuthenticated } = useContext(AuthenticatedContext);
+  const { isAuthenticated } = useAuth();
 
   return (
     <>
