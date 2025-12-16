@@ -4,11 +4,13 @@ import ProductContainer from './ProductContainer';
 import { useLoader } from '../../context/LoaderHelpers';
 import Loader from '../../components/Loader/Loader';
 import { useProduct } from '../../context/productHelpers';
+import ErrorModal from '../../components/ErrorModal/ErrorModal';
 
 const Home = () => {
-  const { getProducts, products } = useProduct();
+  const { getProducts, products, error, clearError } = useProduct();
   const { isLoading } = useLoader();
 
+  // Fetch products when the component mounts
   useEffect(() => {
     getProducts();
   }, []);
@@ -16,6 +18,7 @@ const Home = () => {
   return (
     <>
       <title>Ecommerce</title>
+      {error && <ErrorModal show={true} message={error} onClose={clearError} />}
       {isLoading ? <Loader /> : (
         <>
           <Header />

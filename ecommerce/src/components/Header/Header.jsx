@@ -7,7 +7,7 @@ import { useProduct } from '../../context/productHelpers';
 const Header = () => {
     const { isAuthenticated } = useAuth(); // Accessing authentication status from AuthContext
     const { cartItems } = useCart(); // Accessing cart items from CartContext
-    const { handleSearchProduct } = useProduct(); // Accessing the search handler from ProductContext
+    const { debouncedSearch } = useProduct(); // Accessing the search handler from ProductContext
     const navigate = useNavigate();
 
     return (
@@ -20,11 +20,7 @@ const Header = () => {
                 </div>
 
                 <div className="middle-section">
-                    <input className="search-bar" type="text" placeholder="Search" onKeyUp={ handleSearchProduct } />
-
-                    {/* <button className="search-button">
-                        <img className="search-icon" src="/search-icon.png" />
-                    </button> */}
+                    <input className="search-bar" type="text" placeholder="Search" onKeyUp={ debouncedSearch } />
                 </div>
 
                 <div className="right-section">
