@@ -24,10 +24,6 @@ const Header = () => {
                 </div>
 
                 <div className="right-section">
-                    <Link className="orders-link header-link" to="/orders">
-                        <span className="orders-text">Orders</span>
-                    </Link>
-
                     <Link className="cart-link header-link" to="/checkout">
                         <img className="cart-icon" src="/cart-icon.png" />
                         <div className="cart-quantity">{cartItems.length}</div>
