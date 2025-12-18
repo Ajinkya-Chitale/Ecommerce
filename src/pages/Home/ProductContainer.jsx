@@ -24,7 +24,7 @@ const ProductContainer = ({product}) => {
 
             <div className="product-rating-container">
             <img className="product-rating-stars"
-                src={`../src/assets/ratings/rating-${roundToNearestHalf(product.rating.rate)*10}.png`} />
+                src={`/ratings/rating-${roundToNearestHalf(product.rating.rate)*10}.png`} />
             <div className="product-rating-count link-primary">
                 {product.rating.count}
             </div>
