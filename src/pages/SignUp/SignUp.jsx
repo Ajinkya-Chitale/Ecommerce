@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './signup.css';
+import './SignUp.css';
 import api from '../../api';
 import { useAuth } from '../../context/authHelpers';
 
